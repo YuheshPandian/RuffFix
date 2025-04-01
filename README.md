@@ -1,4 +1,4 @@
-# Ruff Action
+# RuffFix - A GitHub action to lint and format python code
 
 This GitHub Action automatically lints and formats Python code using **Ruff** whenever changes are pushed to the `main` branch. It ensures consistent code style and catches potential errors early.
 
