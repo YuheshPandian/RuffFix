@@ -45,3 +45,5 @@ This project is licensed under the MIT License.
 This GitHub Action helps maintain high code quality and keeps Python code well-formatted without manual intervention!
 
 Give a ⭐ if this action helped you.
+
+---
