@@ -55,5 +55,5 @@ jobs:
           fi
         continue-on-error: true
 branding:
-  icon: "x-circle"
-  color: "green"
+  icon: "zap"
+  color: "black"
