@@ -1,4 +1,6 @@
 name: RuffFix lint and format
+description: "Lint and Format Python code using Ruff"
+author: "Yuhesh Pandian"
 
 on:
   push:
@@ -52,3 +54,7 @@ jobs:
             git push
           fi
         continue-on-error: true
+
+branding:
+  icon: "x-circle"
+  color: "green"

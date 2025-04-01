@@ -1,0 +1,59 @@
+name: RuffFix lint and format
+description: "Lint and Format Python code using Ruff"
+author: "Yuhesh Pandian"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Run Ruff Linter
+        run: ruff check .
+
+  format:
+    runs-on: ubuntu-latest
+    needs: lint # Makes sure the lint job runs first
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Run Ruff Formatter
+        run: ruff format .
+
+      - name: Commit changes (if any)
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add .
+          if ! git diff --cached --quiet; then
+            git commit -m 'Chore: auto-format code using Ruff'
+            git pull --rebase
+            git push
+          fi
+        continue-on-error: true
+branding:
+  icon: "x-circle"
+  color: "green"
