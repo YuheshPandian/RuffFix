@@ -1,0 +1,13 @@
+name: Test RuffFix
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test RuffFix Action
+        uses: ./
+        with:
+          mode: lint
