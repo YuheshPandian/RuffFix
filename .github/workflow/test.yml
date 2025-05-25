@@ -3,15 +3,14 @@ name: Test RuffFix Action
 on:
   push:
     branches:
-      - add_mode_feature
+      - '**'
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Test RuffFix
-        uses: ./  # assumes your action.yml is in repo root
+      - name: Run RuffFix
+        uses: ./ 
         with:
-          mode: lint
-
+          mode: format
