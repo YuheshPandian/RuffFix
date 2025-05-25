@@ -1,0 +1,16 @@
+name: Test RuffFix Action
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run RuffFix
+        uses: ./ 
+        with:
+          mode: format
