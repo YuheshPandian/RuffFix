@@ -8,6 +8,7 @@ This GitHub Action automatically lints and formats Python code using **Ruff** wh
 - Executes only when code is pushed to the `main` branch.
 - Provides immediate feedback on linting errors and formatting issues.
 - Helps maintain a clean and standardized codebase.
+- **New:** Supports flexible **modes** to run only linting, formatting, or both.
 
 ## Prerequisites
 
@@ -28,6 +29,26 @@ Ensure you have the following setup before using this action:
 
 
 ## Configuration
+
+### Modes
+
+You can now customize how RuffFix runs by setting the `mode` input:
+
+- `lint` — run only the Ruff linter  
+- `format` — run only the Ruff formatter  
+- `all` (default) — run both linting and formatting sequentially  
+
+Example usage in your workflow:
+
+```yaml
+steps:
+  - uses: actions/checkout@v4
+  - name: Run RuffFix
+    uses: YuheshPandian/RuffFix@v1.2.0
+    with:
+      mode: all  # options: lint, format, all
+
+```
 
 ### Customizing Ruff Rules
 
