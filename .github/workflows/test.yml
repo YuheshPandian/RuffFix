@@ -13,4 +13,4 @@ jobs:
       - name: Run RuffFix
         uses: ./ 
         with:
-          mode: format
+          mode: all
